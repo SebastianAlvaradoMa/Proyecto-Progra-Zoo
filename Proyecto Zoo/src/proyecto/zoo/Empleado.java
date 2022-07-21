@@ -1,22 +1,15 @@
 
 package proyecto.zoo;
-
-/**
- *
- * @author jeffm
- */
+import javax.swing.JOptionPane;
 public class Empleado {
-    
-    import javax.swing.JOptionPane;
-
-
-
-String usuario; 
-        String apellido;
-        String n_cuenta;
-        String direccion;
-        String login;
-        String password;
+        private String usuario; 
+        private String apellido;
+        private String n_cuenta;
+        private String direccion;
+        private String login;
+        private String password;
+        
+        public void Datos(){
         
         usuario = JOptionPane.showInputDialog("Digite nombre: ");
         apellido = JOptionPane.showInputDialog("Digite apellido: ");
@@ -31,4 +24,5 @@ String usuario;
         JOptionPane.showMessageDialog(null,"Su direccion es: "+ direccion);
         JOptionPane.showMessageDialog(null,"Su correo es: "+ login);
         JOptionPane.showMessageDialog(null,"Su contraseña es: "+ password);
+ }
 }
