@@ -4,12 +4,35 @@ package proyecto.zoo;
 import javax.swing.JOptionPane;
 
 public class Especie {
-    public class Animal {
-   public String especie;
-   public String estado;
-   public String carac;
-   
-    public void leerDatos(){
+
+   private String especie;
+   private String estado;
+   private String carac;
+
+        public String getEspecie() {
+            return especie;
+        }
+
+        public void setEspecie(String especie) {
+            this.especie = especie;
+        }
+
+        public String getEstado() {
+            return estado;
+        }
+
+        public void setEstado(String estado) {
+            this.estado = estado;
+        }
+
+        public String getCarac() {
+            return carac;
+        }
+
+        public void setCarac(String carac) {
+            this.carac = carac;
+        }
+   public void leerDatos(){
         carac=JOptionPane.showInputDialog(null,
                 "Digite las características de la especie:");
         especie=JOptionPane.showInputDialog(null,
@@ -34,4 +57,8 @@ public class Especie {
     
     
 }
-}
+    
+
+
+
+
