@@ -2,37 +2,51 @@
 package proyecto.zoo;
 import javax.swing.JOptionPane;
 public class Animal {
-   public String nombreAnimal;
-   public String fechaNacimiento;
-   public String especie;
-   public String nombreEmpleado;
-   public String estadoEmpleado;
-   
-    public void leerDatos(){
-        nombreAnimal=JOptionPane.showInputDialog(null,
-                "Digite el nombre del animal:");
-        fechaNacimiento=JOptionPane.showInputDialog(null,
-                "Digite la fecha de nacimiento del animal:");
-        especie=JOptionPane.showInputDialog(null,
-                "Digite la especie del animal:");
-        nombreEmpleado=JOptionPane.showInputDialog(null,
-                "Digite el nombre del empleado encargado:");
-        estadoEmpleado=JOptionPane.showInputDialog(null,
-                "1.Estado Activo\n2.Estado Inactivo\nInserte la opcion:");
-        
-        if("1".equals(estadoEmpleado)){
-            estadoEmpleado="Estado Activo";
-            
-        }else{
-            estadoEmpleado="Estado Inactivo";
-            }
+   private String nombreAnimal;
+   private String fechaNacimiento;
+   private String especie;
+   private String nombreEmpleado;
+   private String estadoEmpleado;
+
+    public String getNombreAnimal() {
+        return nombreAnimal;
     }
-        
-    public void mostrarDatos(){
-        JOptionPane.showMessageDialog(null,
-                "El nombre del animal es: "+nombreAnimal+"\nLa fecha de nacimiento es: "+fechaNacimiento+"\nLa especie es: "+especie+"\nEl nombre del empleado es: "+nombreEmpleado+
-                        "\nEstado de empleado: "+estadoEmpleado);
-        }
+
+    public void setNombreAnimal(String nombreAnimal) {
+        this.nombreAnimal = nombreAnimal;
+    }
+
+    public String getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(String fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
+    public String getEspecie() {
+        return especie;
+    }
+
+    public void setEspecie(String especie) {
+        this.especie = especie;
+    }
+
+    public String getNombreEmpleado() {
+        return nombreEmpleado;
+    }
+
+    public void setNombreEmpleado(String nombreEmpleado) {
+        this.nombreEmpleado = nombreEmpleado;
+    }
+
+    public String getEstadoEmpleado() {
+        return estadoEmpleado;
+    }
+
+    public void setEstadoEmpleado(String estadoEmpleado) {
+        this.estadoEmpleado = estadoEmpleado;
+    }
               
         
     
