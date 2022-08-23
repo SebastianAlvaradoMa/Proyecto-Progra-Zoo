@@ -47,8 +47,5 @@ public class Animal {
     public void setEstadoEmpleado(String estadoEmpleado) {
         this.estadoEmpleado = estadoEmpleado;
     }
-              
-        
-    
-    
+ 
 }

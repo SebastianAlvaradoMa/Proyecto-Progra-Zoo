@@ -10,14 +10,14 @@ public class Usuario {
     private String apellidos;
     private String Nickname;
     private String password;
-    private String estado;//(activo o inactivo)
+    //private int estado;//(activo o inactivo)
     
     public Usuario(){
         this.Nombre=" ";
         this.apellidos=" ";
         this.Nickname=" ";
         this.password=" ";
-        this.estado=" ";
+       // this.estado=1;
         
     }
 
@@ -53,13 +53,17 @@ public class Usuario {
         this.password = password;
     }
 
-    public String getEstado() {
-        return estado;
-    }
+  //  public int getEstado() {
+   //     return estado;
+   // }
 
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
+  //  public void setEstado(int estado) {
+   //     this.estado = estado;
+  //  }
+    
+    //    public void Deactivar() {
+   //     this.estado = 0;
+   // }
     }
 
 

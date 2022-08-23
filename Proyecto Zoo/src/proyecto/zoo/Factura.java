@@ -1,4 +1,4 @@
-//jeff
+
 package proyecto.zoo;
 
 public class Factura {
@@ -6,7 +6,16 @@ public class Factura {
     private String nombreV;
     private String fecha;
     private int HoraVisita;
-    private int opcion;
+    private int Personas;
+    public int Persona;
+
+    public int getPersonas() {
+        return Personas;
+    }
+
+    public void setPersonas(int Personas) {
+        this.Personas = Personas;
+    }
 
     public String getNombreV() {
         return nombreV;
@@ -32,3 +41,4 @@ public class Factura {
         this.HoraVisita = HoraVisita;
     }
 }
+
