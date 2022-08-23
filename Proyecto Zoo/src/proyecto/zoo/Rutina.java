@@ -5,12 +5,10 @@ import javax.swing.JOptionPane;
 
 public class Rutina {
     public int Total;
-    public int PersonasU;
-    public int PersonasV;
-    public int Persona;
+    
     //usuarios
-    private Usuario datos[];//arreglo
-//private Usuario datos[]= new Usuario[cantUsuarios];//arreglo
+   
+private Usuario datos[]= new Usuario[2];//arreglo
     
 public void AgregarUsuarios(){
     int x;
@@ -33,7 +31,7 @@ public void ConsultarUsuarios(){
         for(x=0;x<datos.length;x++){
             s=s+datos[x].getNombre()+"  "+datos[x].getApellidos()+"  "+datos[x].getNickname()+"  "+datos[x].getPassword()+"\n";
         }
-        JOptionPane.showMessageDialog(null,"***DATOS USUARIOS***\n"+s);
+        JOptionPane.showMessageDialog(null,"**DATOS USUARIOS**\n"+s);
     }
 
 public void EncontrarUsuario(){
@@ -52,10 +50,10 @@ public void EncontrarUsuario(){
      }
      
 //visitantes
-//private Visitantes datosV[]= new Visitantes[3];//arreglo
-  private Usuario datosV[]; 
+private Visitantes datosV[]= new Visitantes[3];//arreglo
+
    public void AgregarVisitantes(){
-       datosV = new Visitantes[PersonasV];
+
        int x;
        for(x=0;x<datosV.length;x++){
            
@@ -74,12 +72,12 @@ public void EncontrarUsuario(){
         for(x=0;x<datosV.length;x++){
             s=s+datosV[x].getNombreV()+"  "+datosV[x].getApellidosV()+"  "+datosV[x].getEdad()+"\n";
         }
-        JOptionPane.showMessageDialog(null,"  ***DATOS VISITANTES***\n"+s);
+        JOptionPane.showMessageDialog(null,"  **DATOS VISITANTES**\n"+s);
     }
   
     
     //empleados
-    private Empleado datosEm[]=new Empleado[3];//arreglo
+    private Empleado datosEm[]=new Empleado[2];//arreglo
         
          public void AgregarEmpleados(){
         int x;
@@ -103,12 +101,13 @@ public void EncontrarUsuario(){
         for(x=0;x<datosEm.length;x++){
          String s="";
         for(x=0;x<datosEm.length;x++){
-            s=s+datosEm[x].getNombreE()+"  "+datosEm[x].getApellidoE()+"  "+datosEm[x].getCiudad()+"  "+datosEm[x].getDireccion()+
-                    datosEm[x].getTelefono()+datosEm[x].getCorreoElec()+datosEm[x].getEstado()+"\n";
+            s=s+datosEm[x].getNombreE()+"  "+datosEm[x].getApellidoE()+"  "+datosEm[x].getCiudad()
+                    +"  "+datosEm[x].getDireccion()+"  "+datosEm[x].getTelefono()+"  "+datosEm[x].getCorreoElec()+"  "+datosEm[x].getEstado()+"\n";
         }
-        JOptionPane.showMessageDialog(null,"  ***DATOS EMPLEADOS***\n"+s);
+        JOptionPane.showMessageDialog(null,"                                          **DATOS EMPLEADOS**\n"+s);
         }
     }
+        
         //Especie
         private Especie datosEspecie[]=new Especie[3];//arreglo
     
@@ -131,7 +130,7 @@ public void EncontrarUsuario(){
         for(x=0;x<datosEspecie.length;x++){
             s=s+datosEspecie[x].getEspecie()+"  "+datosEspecie[x].getCarac()+"  "+datosEspecie[x].getEstado()+"\n";
         }
-        JOptionPane.showMessageDialog(null,"  ***DATOS ESPECIE\n"+s);
+        JOptionPane.showMessageDialog(null,"  **DATOS ESPECIE**\n"+s);
         }
      
          public void EncontrarEspecie(){
@@ -141,7 +140,7 @@ public void EncontrarUsuario(){
          for(x=0;x<datosEspecie.length;x++){
              if(nomE.equals(datosEspecie[x].getEspecie())){
                  JOptionPane.showMessageDialog(null,"Esta especie ya existe");
-                 JOptionPane.showMessageDialog(null,"Especie encontrada: "+datosEspecie[x].getEspecie()+", "+datosEspecie[x].getCarac());
+                 JOptionPane.showMessageDialog(null,"Especie encontrada: "+datosEspecie[x].getEspecie()+", "+datosEspecie[x].getCarac()+"\n");
                  encontrado=1;
                  if(encontrado==0){
                      JOptionPane.showMessageDialog(null,"Esta especie no existe");
@@ -151,7 +150,7 @@ public void EncontrarUsuario(){
      }
     
      //animal
-       private Animal listaAnimal[]=new Animal[1];//arreglo
+       private Animal listaAnimal[]=new Animal[2];//arreglo
        
     public void AgregarAnimal(){
         int x;
@@ -178,16 +177,16 @@ public void EncontrarUsuario(){
             s=s+listaAnimal[x].getNombreAnimal()+"  "+listaAnimal[x].getFechaNacimiento()+"  "+listaAnimal[x].getEspecie()+"  "+listaAnimal[x].getNombreEmpleado()+
                     listaAnimal[x].getEstadoEmpleado()+"\n";
         }
-        JOptionPane.showMessageDialog(null,"  ***DATOS  DEL  ANIMAL***\n"+s);
+        JOptionPane.showMessageDialog(null,"        **DATOS  DEL  ANIMAL**\n"+s);
         }
     }
 
-     private Factura datosR[]=new Factura[3];
+     private Factura datosR[]=new Factura[2];
 
      public void Reservacion(){
          int Persona;
          int Precio=2500;
-         int Total=0;
+         int Total;
          int x;
          
          for(x=0;x<datosR.length;x++){
@@ -196,7 +195,7 @@ public void EncontrarUsuario(){
 
              f.setNombreV(JOptionPane.showInputDialog(null,"Digite su nombre:"));
              f.setFecha(JOptionPane.showInputDialog(null,"Digite la fecha de su cita:"));
-             f.setHoraVisita(Integer.parseInt(JOptionPane.showInputDialog(null,"Digite la hora de visita:")));
+             f.setHoraVisita(JOptionPane.showInputDialog(null,"Digite la hora de visita:"));
              Persona=Integer.parseInt(JOptionPane.showInputDialog(null,"1.Entrada $2500 por persona\n\nInserte la cantidad de personas:"));
              Total=Persona*Precio;
                  datosR[x]=f; 
@@ -204,44 +203,41 @@ public void EncontrarUsuario(){
              }
      }
      
-     public void Cita(){
+     public void Factura(){
          int x;
         for(x=0;x<datosR.length;x++){
          String s="";
         for(x=0;x<datosR.length;x++){
-            s=s+datosR[x].getNombreV()+"  "+datosR[x].getFecha()+"  "+datosR[x].getPersonas()+"\n";
+            s=s+datosR[x].getNombreV()+"  "+datosR[x].getFecha()+"\n";
         }
         JOptionPane.showMessageDialog(null,"  DATOS FACTURA\n"+s);
         } 
      }
      
-     public void Factura(){
+     public void factura(){
         int x;
         for(x=0;x<datosR.length;x++){
          String s="";
         for(x=0;x<datosR.length;x++){
-            s=s+datosR[x].getNombreV()+"  "+datosR[x].getFecha()+"  "+datosR[x].getHoraVisita();
+            s=s+datosR[x].getNombreV()+"  "+datosR[x].getFecha()+"  "+datosR[x].getHoraVisita()+"\n";
         }
-        JOptionPane.showMessageDialog(null,"  DATOS FACTURA\n"+s+" Personas: "+Persona+" Precio= $"+Total);
+        JOptionPane.showMessageDialog(null,"  DATOS FACTURA\n"+s+" Personas: "+" Precio= $"+Total);
         }
      }
      
     //menu
     public void MenuP(){
-        PersonasU = Integer.parseInt(JOptionPane.showInputDialog(null,"Digite su cantidad de personas:"));
-    datos = new Usuario[PersonasU];
-        PersonasV = Integer.parseInt(JOptionPane.showInputDialog(null,"Digite su cantidad de personas:"));
-    datosV = new Visitantes[PersonasV];
+
         int OpcionMenu=0;
-        while(OpcionMenu!=10){
-            OpcionMenu=Integer.parseInt(JOptionPane.showInputDialog(null,"                                                        ***MENÚ PRINCIPAL***\n\n"
-                    + "1. Usuarios  "+ "\n2. Visitantes  "+ "3. Empleados"+"4. Especie"+"5. Animal"+"6. Citas"+"\n\n"+"Digite su opción:"));
+        while(OpcionMenu!=7){
+            OpcionMenu=Integer.parseInt(JOptionPane.showInputDialog(null," **MENÚ PRINCIPAL**\n\n"
+                    + "1. Usuarios  "+ "\n2. Visitantes  "+ "\n3. Empleados"+"\n4. Especie"+"\n5. Animal"+"\n6. Citas"+"\n\n"+"Digite su opción:"));
             
             switch (OpcionMenu){
                 case 1:{
                     int opcionUsuario=0;
                     while(opcionUsuario!=0);
-                    opcionUsuario=Integer.parseInt(JOptionPane.showInputDialog(null,"1.Llenar Usuarios"+"\n2.Mostrar Usuarios"+"\n3.Desactivar Usuario"+"3.Buscar Usuario"+"\n4.Regresar"));
+                    opcionUsuario=Integer.parseInt(JOptionPane.showInputDialog(null,"1.Llenar Usuarios"+"\n2.Mostrar Usuarios"+"\n3.Buscar Usuario"+"\n4.Desactivar Usuario"+"\n5.Regresar"));
                     switch(opcionUsuario){
                         case 1:{
                             AgregarUsuarios();
@@ -256,11 +252,17 @@ public void EncontrarUsuario(){
                         break; 
                         }
                         case 4:{
+                            //desactivar usuario                          
+                            break;
+                        }
+                        case 5:{
                             MenuP();
                             break;
+                            
                         }
                     }
                 }
+                break;
             
                 
             
@@ -283,6 +285,8 @@ public void EncontrarUsuario(){
                         }
                     }
                 }
+                break;
+                
                 case 3:{
                 int opcionEmpleado=0;
                     while(opcionEmpleado!=0);
@@ -303,10 +307,12 @@ public void EncontrarUsuario(){
                     
             }
          }
+                break;
+                
                 case 4:{
                     int opcionEspecie=0;
                     while(opcionEspecie!=0);
-                    opcionEspecie=Integer.parseInt(JOptionPane.showInputDialog(null,"1.Agregar Especie"+"\n2.Consultar Especie"+"3.Buscar Especie"+"\n4.Regresar"));
+                    opcionEspecie=Integer.parseInt(JOptionPane.showInputDialog(null,"1.Agregar Especie"+"\n2.Consultar Especie"+"\n3.Buscar Especie"+"\n4.Regresar"));
                     switch(opcionEspecie){
                         case 1:{
                             AgregarEspecie();
@@ -328,6 +334,8 @@ public void EncontrarUsuario(){
                     
    }
 }
+                break;
+                
                 case 5:{
                    int opcionAnimal=0;
                     while(opcionAnimal!=0);
@@ -347,33 +355,41 @@ public void EncontrarUsuario(){
                         } 
                 }
 }
+                break;
             
-              //  case 6:{
-               //     int opcionCita=0;
-               //     while(opcionCita!=0);
-               //     opcionCita=Integer.parseInt(JOptionPane.showInputDialog(null,"1.Reservación"+"\n2.Citas Pendientes"+"\n3.Factura"+"\n4.Regresar"));
-                //    switch(opcionCita){
-                 //       case 1:{
-                   //         reservacion();
-                   //         break;
-                   //    }
-                    //    case 2:{
-                    //        citasPendientes();
-                    //        break;
-                    //    }
-                    //    case 3:{
-                    //       factura();
-                   //         break;
-                  //      }
-                  //      case 4:{
-                    //        MenuP();
-                    //        break;
-                   //     } 
-           //     }
-            //    }
-}
+                case 6:{
+                    int opcionCita=0;
+                    while(opcionCita!=0);
+                    opcionCita=Integer.parseInt(JOptionPane.showInputDialog(null,"1.Reservación"+"\n2.Citas Pendientes"+"\n3.Factura"+"\n4.Regresar"));
+                    switch(opcionCita){
+                        case 1:{
+                            Reservacion();
+                            break;
+                       }
+                        case 2:{
+                            Factura();
+                            break;
+                        }
+                        case 3:{
+                          // Factura();
+                           // break;
+                        }
+                        case 4:{
+                            MenuP();
+                            break;
+                        } 
+                }
+                    break;
+                }            
+                      
+                case 7:{
+                    JOptionPane.showMessageDialog(null,"Has salido del programa!");
+                    System.exit(0);
+                    break;
+                }
+
+                }
 }
 }
     }
-
-
+//falta la factura y modificary cancelar no
