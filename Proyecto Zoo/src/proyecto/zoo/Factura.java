@@ -5,7 +5,7 @@ public class Factura {
     // citas, modificar y eso
     private String nombreV;
     private String fecha;
-    private int HoraVisita;
+    private String HoraVisita;
     private int Personas;
     public int Persona;
 
@@ -33,11 +33,11 @@ public class Factura {
         this.fecha = fecha;
     }
 
-    public int getHoraVisita() {
+    public String getHoraVisita() {
         return HoraVisita;
     }
 
-    public void setHoraVisita(int HoraVisita) {
+    public void setHoraVisita(String HoraVisita) {
         this.HoraVisita = HoraVisita;
     }
 }

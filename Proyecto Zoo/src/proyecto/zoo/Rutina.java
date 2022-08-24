@@ -4,13 +4,9 @@ package proyecto.zoo;
 import javax.swing.JOptionPane;
 
 public class Rutina {
-    public int Total;
     public int PersonasU;
-    public int PersonasV;
-    public int Persona;
-    //usuarios
-    private Usuario datos[];//arreglo
-//private Usuario datos[]= new Usuario[cantUsuarios];//arreglo
+    public int Persona;//arreglo
+    private Usuario datos[]= new Usuario[2];//arreglo
     
 public void AgregarUsuarios(){
     int x;
@@ -52,10 +48,9 @@ public void EncontrarUsuario(){
      }
      
 //visitantes
-//private Visitantes datosV[]= new Visitantes[3];//arreglo
-  private Usuario datosV[]; 
+private Visitantes datosV[]= new Visitantes[5];//arreglo
    public void AgregarVisitantes(){
-       datosV = new Visitantes[PersonasV];
+       
        int x;
        for(x=0;x<datosV.length;x++){
            
@@ -68,7 +63,6 @@ public void EncontrarUsuario(){
        }
    }
    public void ConsultarVisitantes(){
-       
        int x;
         String s="";
         for(x=0;x<datosV.length;x++){
@@ -182,12 +176,12 @@ public void EncontrarUsuario(){
         }
     }
 
-     private Factura datosR[]=new Factura[3];
+     private Factura datosR[]=new Factura[2];
 
      public void Reservacion(){
          int Persona;
          int Precio=2500;
-         int Total=0;
+         int Total;
          int x;
          
          for(x=0;x<datosR.length;x++){
@@ -196,13 +190,14 @@ public void EncontrarUsuario(){
 
              f.setNombreV(JOptionPane.showInputDialog(null,"Digite su nombre:"));
              f.setFecha(JOptionPane.showInputDialog(null,"Digite la fecha de su cita:"));
-             f.setHoraVisita(Integer.parseInt(JOptionPane.showInputDialog(null,"Digite la hora de visita:")));
+             f.setHoraVisita(JOptionPane.showInputDialog(null,"Digite la hora de visita:"));
              Persona=Integer.parseInt(JOptionPane.showInputDialog(null,"1.Entrada $2500 por persona\n\nInserte la cantidad de personas:"));
              Total=Persona*Precio;
                  datosR[x]=f; 
-             
-             }
-     }
+            JOptionPane.showMessageDialog(null,"  DATOS FACTURA\n"+ datosR[x].getNombreV()+"  "+datosR[x].getFecha()+"  "+datosR[x].getHoraVisita()+" Personas: "+Persona+" Precio= $"+Total);
+        }
+        }
+       
      
      public void Cita(){
          int x;
@@ -215,27 +210,14 @@ public void EncontrarUsuario(){
         } 
      }
      
-     public void Factura(){
-        int x;
-        for(x=0;x<datosR.length;x++){
-         String s="";
-        for(x=0;x<datosR.length;x++){
-            s=s+datosR[x].getNombreV()+"  "+datosR[x].getFecha()+"  "+datosR[x].getHoraVisita();
-        }
-        JOptionPane.showMessageDialog(null,"  DATOS FACTURA\n"+s+" Personas: "+Persona+" Precio= $"+Total);
-        }
-     }
+     
      
     //menu
     public void MenuP(){
-        PersonasU = Integer.parseInt(JOptionPane.showInputDialog(null,"Digite su cantidad de personas:"));
-    datos = new Usuario[PersonasU];
-        PersonasV = Integer.parseInt(JOptionPane.showInputDialog(null,"Digite su cantidad de personas:"));
-    datosV = new Visitantes[PersonasV];
         int OpcionMenu=0;
         while(OpcionMenu!=10){
             OpcionMenu=Integer.parseInt(JOptionPane.showInputDialog(null,"                                                        ***MENÚ PRINCIPAL***\n\n"
-                    + "1. Usuarios  "+ "\n2. Visitantes  "+ "3. Empleados"+"4. Especie"+"5. Animal"+"6. Citas"+"\n\n"+"Digite su opción:"));
+                    + "1. Usuarios  "+"\n2. Visitantes  "+"3. Empleados"+"4. Especie"+"5. Animal"+"6. Citas"+"\n\n"+"Digite su opción:"));
             
             switch (OpcionMenu){
                 case 1:{
@@ -348,32 +330,36 @@ public void EncontrarUsuario(){
                 }
 }
             
-              //  case 6:{
-               //     int opcionCita=0;
-               //     while(opcionCita!=0);
-               //     opcionCita=Integer.parseInt(JOptionPane.showInputDialog(null,"1.Reservación"+"\n2.Citas Pendientes"+"\n3.Factura"+"\n4.Regresar"));
-                //    switch(opcionCita){
-                 //       case 1:{
-                   //         reservacion();
-                   //         break;
-                   //    }
-                    //    case 2:{
-                    //        citasPendientes();
-                    //        break;
-                    //    }
-                    //    case 3:{
-                    //       factura();
-                   //         break;
-                  //      }
-                  //      case 4:{
-                    //        MenuP();
-                    //        break;
-                   //     } 
-           //     }
-            //    }
+                case 6:{
+                    int opcionCita=0;
+                    while(opcionCita!=0);
+                    opcionCita=Integer.parseInt(JOptionPane.showInputDialog(null,"1.Reservación"+"\n2.Citas Pendientes"+"\n3.Factura"+"\n4.Regresar"));
+                    switch(opcionCita){
+                        case 1:{
+                            Reservacion();
+                            break;
+                       }
+                        case 2:{
+                            Cita();
+                            break;
+                        }
+              //          case 3:{
+               //            Factura();
+                 //           break;
+                 //       }
+                        case 3:{
+                            MenuP();
+                            break;
+                        } 
+                }
+                }
 }
 }
 }
     }
+        
+      
+       
+               
 
 
