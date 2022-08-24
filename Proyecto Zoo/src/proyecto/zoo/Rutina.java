@@ -4,9 +4,15 @@ package proyecto.zoo;
 import javax.swing.JOptionPane;
 
 public class Rutina {
-    public int PersonasU;
-    public int Persona;//arreglo
-    private Usuario datos[]= new Usuario[2];//arreglo
+    int Persona;
+    int Precio=2500;
+    public int Total;
+    public int estado=0;
+    public String user;
+    //usuarios
+   
+private Usuario datos[]= new Usuario[2];//arreglo
+    
     
 public void AgregarUsuarios(){
     int x;
@@ -29,7 +35,7 @@ public void ConsultarUsuarios(){
         for(x=0;x<datos.length;x++){
             s=s+datos[x].getNombre()+"  "+datos[x].getApellidos()+"  "+datos[x].getNickname()+"  "+datos[x].getPassword()+"\n";
         }
-        JOptionPane.showMessageDialog(null,"***DATOS USUARIOS***\n"+s);
+        JOptionPane.showMessageDialog(null,"**DATOS USUARIOS**\n"+s);
     }
 
 public void EncontrarUsuario(){
@@ -46,7 +52,33 @@ public void EncontrarUsuario(){
              }
          }
      }
-     
+public void InactivarUsuario(){
+    user=JOptionPane.showInputDialog(null, "Cual Usuario desea inactivar:");
+    for(int x = 0; x <datos.length; x++){
+        if(user.equals(datos[x].getNombre())){
+            datos[x].Deactivar();
+        }
+    }
+}
+ 
+public void ConsultarUsuariosInactivos(){
+    for(int x = 0; x <datos.length;x++){
+        if(datos[x].getEstado() == 1){
+           JOptionPane.showMessageDialog(null,"Usuarios Inactivos"+"\n"+datos[x].getNombre()+" "+datos[x].getApellidos()+" "+datos[x].getNickname());
+        }
+    }
+ }
+
+public void ConsultarUsuariosActivos(){
+    for(int x = 0; x <datos.length;x++){
+        if(datos[x].getEstado() != 1){
+           JOptionPane.showMessageDialog(null,"Usuarios Activos"+"\n"+datos[x].getNombre()+" "+datos[x].getApellidos()+" "+datos[x].getNickname());
+        }
+        }
+}
+        
+    
+
 //visitantes
 private Visitantes datosV[]= new Visitantes[5];//arreglo
    public void AgregarVisitantes(){
@@ -68,7 +100,7 @@ private Visitantes datosV[]= new Visitantes[5];//arreglo
         for(x=0;x<datosV.length;x++){
             s=s+datosV[x].getNombreV()+"  "+datosV[x].getApellidosV()+"  "+datosV[x].getEdad()+"\n";
         }
-        JOptionPane.showMessageDialog(null,"  ***DATOS VISITANTES***\n"+s);
+        JOptionPane.showMessageDialog(null,"  **DATOS VISITANTES**\n"+s);
     }
   
     
@@ -100,7 +132,7 @@ private Visitantes datosV[]= new Visitantes[5];//arreglo
             s=s+datosEm[x].getNombreE()+"  "+datosEm[x].getApellidoE()+"  "+datosEm[x].getCiudad()+"  "+datosEm[x].getDireccion()+
                     datosEm[x].getTelefono()+datosEm[x].getCorreoElec()+datosEm[x].getEstado()+"\n";
         }
-        JOptionPane.showMessageDialog(null,"  ***DATOS EMPLEADOS***\n"+s);
+        JOptionPane.showMessageDialog(null,"  **DATOS EMPLEADOS**\n"+s);
         }
     }
         //Especie
@@ -163,7 +195,7 @@ private Visitantes datosV[]= new Visitantes[5];//arreglo
     
         }
     
-     public void ConsultarAnimal(){
+     public void ConsultarAnimales(){
         
         int x;
         for(x=0;x<listaAnimal.length;x++){
@@ -172,58 +204,76 @@ private Visitantes datosV[]= new Visitantes[5];//arreglo
             s=s+listaAnimal[x].getNombreAnimal()+"  "+listaAnimal[x].getFechaNacimiento()+"  "+listaAnimal[x].getEspecie()+"  "+listaAnimal[x].getNombreEmpleado()+
                     listaAnimal[x].getEstadoEmpleado()+"\n";
         }
-        JOptionPane.showMessageDialog(null,"  ***DATOS  DEL  ANIMAL***\n"+s);
+        JOptionPane.showMessageDialog(null,"  **DATOS  DEL  ANIMAL**\n"+s);
         }
     }
+     public void BuscarAnimal(){
+         int x, encontrado=0;
+         String nomA;
+         nomA=JOptionPane.showInputDialog(null,"Digite el nombre del animal para verificar:");
+         for(x=0;x<listaAnimal.length;x++){
+             if(nomA.equals(listaAnimal[x].getNombreAnimal())){
+                 JOptionPane.showMessageDialog(null,"Esta especie ya existe");
+                 JOptionPane.showMessageDialog(null,"Animal: "+listaAnimal[x].getNombreAnimal()+", "+listaAnimal[x].getFechaNacimiento()+"\n");
+                 encontrado=1;
+                 if(encontrado==0){
+                     JOptionPane.showMessageDialog(null,"Este animal no existe");
+                 }
+             }
+         }
+     }
 
      private Factura datosR[]=new Factura[2];
 
      public void Reservacion(){
-         int Persona;
-         int Precio=2500;
-         int Total;
+         
          int x;
          
          for(x=0;x<datosR.length;x++){
              
              Factura f=new Factura();
 
+             JOptionPane.showMessageDialog(null, "Reservacion");
              f.setNombreV(JOptionPane.showInputDialog(null,"Digite su nombre:"));
              f.setFecha(JOptionPane.showInputDialog(null,"Digite la fecha de su cita:"));
              f.setHoraVisita(JOptionPane.showInputDialog(null,"Digite la hora de visita:"));
              Persona=Integer.parseInt(JOptionPane.showInputDialog(null,"1.Entrada $2500 por persona\n\nInserte la cantidad de personas:"));
              Total=Persona*Precio;
                  datosR[x]=f; 
+            JOptionPane.showMessageDialog(null,"  DATOS FACTURA\n"
+                    +datosR[x].getNombreV()+"\n"
+                    +datosR[x].getFecha()+"\n"
+                    +datosR[x].getHoraVisita()+"\n"
+                    +"Cantidad de personas:"+Persona+"\n"
+                    +"Total: "+Total);
+        }
+        }
+
+       public void Cita(){
+         int x;
+         for(x=0;x<datosR.length;x++){
             JOptionPane.showMessageDialog(null,"  DATOS FACTURA\n"+ datosR[x].getNombreV()+"  "+datosR[x].getFecha()+"  "+datosR[x].getHoraVisita()+" Personas: "+Persona+" Precio= $"+Total);
         }
-        }
+       }
+        
        
      
-     public void Cita(){
-         int x;
-        for(x=0;x<datosR.length;x++){
-         String s="";
-        for(x=0;x<datosR.length;x++){
-            s=s+datosR[x].getNombreV()+"  "+datosR[x].getFecha()+"  "+datosR[x].getPersonas()+"\n";
-        }
-        JOptionPane.showMessageDialog(null,"  DATOS FACTURA\n"+s);
-        } 
-     }
-     
-     
-     
+ 
+
     //menu
     public void MenuP(){
         int OpcionMenu=0;
         while(OpcionMenu!=10){
-            OpcionMenu=Integer.parseInt(JOptionPane.showInputDialog(null,"                                                        ***MENÚ PRINCIPAL***\n\n"
+            OpcionMenu=Integer.parseInt(JOptionPane.showInputDialog(null,"                                                        **MENÚ PRINCIPAL**\n\n"
                     + "1. Usuarios  "+"\n2. Visitantes  "+"3. Empleados"+"4. Especie"+"5. Animal"+"6. Citas"+"\n\n"+"Digite su opción:"));
             
             switch (OpcionMenu){
                 case 1:{
                     int opcionUsuario=0;
                     while(opcionUsuario!=0);
-                    opcionUsuario=Integer.parseInt(JOptionPane.showInputDialog(null,"1.Llenar Usuarios"+"\n2.Mostrar Usuarios"+"\n3.Desactivar Usuario"+"3.Buscar Usuario"+"\n4.Regresar"));
+                    opcionUsuario=Integer.parseInt(JOptionPane.showInputDialog(null,"1.Llenar Usuarios"+"\n2.Mostrar Usuarios"+"\n3.Buscar Usuario"+"\n4.Inactivar Usuario"+
+                            "\n5.Consultar Usuarios Inactivos"+"\n6.Consultar Usuarios Activos"+"\n7.Regresar"));
+
                     switch(opcionUsuario){
                         case 1:{
                             AgregarUsuarios();
@@ -238,6 +288,20 @@ private Visitantes datosV[]= new Visitantes[5];//arreglo
                         break; 
                         }
                         case 4:{
+
+                            InactivarUsuario();                        
+                            break;
+                        }
+                        case 5:{
+                            ConsultarUsuariosInactivos();
+                            break;
+                        }
+                        case 6:{
+                            ConsultarUsuariosActivos();
+                            break;
+                        }
+                        case 7:{
+
                             MenuP();
                             break;
                         }
@@ -320,7 +384,7 @@ private Visitantes datosV[]= new Visitantes[5];//arreglo
                             break;
                         }
                         case 2:{
-                            ConsultarAnimal();
+                            ConsultarAnimales();
                             break;
                         }
                         case 3:{
@@ -338,15 +402,11 @@ private Visitantes datosV[]= new Visitantes[5];//arreglo
                         case 1:{
                             Reservacion();
                             break;
-                       }
+                        }
                         case 2:{
                             Cita();
                             break;
                         }
-              //          case 3:{
-               //            Factura();
-                 //           break;
-                 //       }
                         case 3:{
                             MenuP();
                             break;
@@ -356,7 +416,7 @@ private Visitantes datosV[]= new Visitantes[5];//arreglo
 }
 }
 }
-    }
+}
         
       
        
