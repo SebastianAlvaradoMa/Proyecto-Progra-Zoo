@@ -7,6 +7,14 @@ public class Animal {
    private String especie;
    private String nombreEmpleado;
    private String estadoEmpleado;
+   
+   public Animal(){
+    this.nombreAnimal=" ";
+    this.fechaNacimiento=" ";
+    this.especie=" ";
+    this.nombreEmpleado=" ";
+    this.estadoEmpleado=" ";
+}
 
     public String getNombreAnimal() {
         return nombreAnimal;

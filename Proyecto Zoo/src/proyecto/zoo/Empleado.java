@@ -9,7 +9,17 @@ public class Empleado {
         private int telefono;
         private String correoElec;
         private String estado;
-
+        
+        public Empleado(){
+        this.nombreE=" ";
+        this.apellidoE=" ";
+        this.ciudad=" ";
+        this.direccion=" ";
+        this.telefono=0;
+        this.correoElec=" ";
+        this.estado=" ";
+        }
+        
     public String getNombreE() {
         return nombreE;
     }

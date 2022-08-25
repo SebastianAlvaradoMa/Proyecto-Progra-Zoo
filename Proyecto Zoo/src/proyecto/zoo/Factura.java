@@ -6,9 +6,37 @@ public class Factura {
     private String nombreV;
     private String fecha;
     private String HoraVisita;
+    private String FechasMod;
+    private String HoraMod;
     private int Personas;
     public int Persona;
+    
+    public Factura(){
+        this.nombreV=" ";
+        this.fecha=" ";
+        this.HoraVisita=" ";
+        this.FechasMod=" ";
+        this.HoraMod=" ";
+        this.Personas=0;
+        this.Persona=0;
+    }
 
+    public String getHoraMod() {
+        return HoraMod;
+    }
+
+    public void setHoraMod(String HoraMod) {
+        this.HoraMod = HoraMod;
+    }
+
+    public String getFechasMod() {
+        return FechasMod;
+    }
+
+    public void setFechasMod(String FechasMod) {
+        this.FechasMod = FechasMod;
+    }
+    
     public int getPersonas() {
         return Personas;
     }
@@ -18,7 +46,7 @@ public class Factura {
     }
 
     public String getNombreV() {
-        return nombreV;
+        return this.nombreV;
     }
 
     public void setNombreV(String nombreV) {
